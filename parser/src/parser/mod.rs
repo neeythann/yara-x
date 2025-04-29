@@ -1214,6 +1214,7 @@ impl ParserImpl<'_> {
     ///   `nocase`                                                 |
     ///   `private`                                                |
     ///   `fullword`                                               |
+    ///   `leet`                                                   |
     ///   `base64` | `base64wide` ( `(` STRING_LIT `)` )?          |
     ///   `xor` (
     ///       `(`
