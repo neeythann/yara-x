@@ -2574,6 +2574,7 @@ pub(crate) enum SubPattern {
 
     // TODO(neeythann): im not sure if this is right
     Leet {
+        pattern: LiteralId,
         flags: SubPatternFlags,
     },
 
