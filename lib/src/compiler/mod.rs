@@ -2511,6 +2511,7 @@ bitflags! {
     pub struct SubPatternFlags: u16  {
         const Wide                 = 0x01;
         const Nocase               = 0x02;
+        const Leet                 = 0x03;
         // Indicates that the pattern is the last one in chain. Applies only
         // to chained sub-patterns.
         const LastInChain          = 0x04;
@@ -2523,8 +2524,6 @@ bitflags! {
         // Indicates that the pattern is a fast regexp. A fast regexp is one
         // that can be matched by the FastVM.
         const FastRegexp           = 0x40;
-        //TODO(neeythann):
-        const Leet                 = 0x50;
     }
 }
 

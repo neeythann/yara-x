@@ -528,10 +528,6 @@ impl ScanContext<'_> {
             }
 
             match sub_pattern {
-                SubPattern::Leet { .. } => {
-                    todo!();
-                }
-
                 SubPattern::Literal { pattern, flags, .. }
                 | SubPattern::LiteralChainHead { pattern, flags, .. }
                 | SubPattern::LiteralChainTail { pattern, flags, .. } => {
@@ -590,6 +586,11 @@ impl ScanContext<'_> {
                             match_,
                         );
                     }
+                }
+
+                // TODO(neeythann)
+                SubPattern::Leet { .. } => {
+                    todo!();
                 }
 
                 SubPattern::Base64 { pattern, padding }
@@ -747,7 +748,6 @@ impl ScanContext<'_> {
         match sub_pattern {
             SubPattern::Literal { .. }
             | SubPattern::Xor { .. }
-            // TODO(neeythann): idk if this is right
             | SubPattern::Leet { .. }
             | SubPattern::Base64 { .. }
             | SubPattern::Base64Wide { .. }
