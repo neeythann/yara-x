@@ -591,14 +591,14 @@ impl ScanContext<'_> {
                 // TODO(neeythann)
                 SubPattern::Leet { pattern, flags } => {
                     todo!();
-                    //if let Some(match_) = verify_leet_match() {
-                    //    self.handle_sub_pattern_match(
-                    //        sub_pattern_id,
-                    //        sub_pattern,
-                    //        *pattern_id,
-                    //        match_,
-                    //    )
-                    //};
+                    if let Some(match_) = verify_leet_match() {
+                        self.handle_sub_pattern_match(
+                            sub_pattern_id,
+                            sub_pattern,
+                            *pattern_id,
+                            match_,
+                        )
+                    };
                 }
 
                 SubPattern::Base64 { pattern, padding }

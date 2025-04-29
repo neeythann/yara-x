@@ -107,13 +107,15 @@ pub(in crate::compiler) fn text_pattern_from_ast<'src>(
 
     let invalid_combinations = [
         ("xor", xor, "nocase", nocase),
+        ("xor", xor, "leet", leet),
+        ("leet", leet, "nocase", nocase),
+        ("leet", leet, "fullword", fullword),
         ("base64", base64, "nocase", nocase),
         ("base64wide", base64wide, "nocase", nocase),
         ("base64", base64, "fullword", fullword),
         ("base64wide", base64wide, "fullword", fullword),
         ("base64", base64, "xor", xor),
         ("base64wide", base64wide, "xor", xor),
-        ("leet", leet, "xor", xor),
     ];
 
     for (name1, modifier1, name2, modifier2) in invalid_combinations {
