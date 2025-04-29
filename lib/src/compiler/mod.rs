@@ -2570,6 +2570,11 @@ pub(crate) enum SubPattern {
         flags: SubPatternFlags,
     },
 
+    // TODO(neeythann): im not sure if this is right
+    Leet {
+        flags: SubPatternFlags,
+    },
+
     Base64 {
         pattern: LiteralId,
         padding: u8,
