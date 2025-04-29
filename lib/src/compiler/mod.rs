@@ -1907,6 +1907,8 @@ impl Compiler<'_> {
         let wide = flags.contains(PatternFlags::Wide);
         let case_insensitive = flags.contains(PatternFlags::Nocase);
         let full_word = flags.contains(PatternFlags::Fullword);
+        // TODO(neeythann)
+        let leet = flags.contains(PatternFlags::Leet);
 
         let mut flags = SubPatternFlags::empty();
 
@@ -1999,6 +2001,8 @@ impl Compiler<'_> {
         let wide = flags.contains(PatternFlags::Wide);
         let case_insensitive = flags.contains(PatternFlags::Nocase);
         let full_word = flags.contains(PatternFlags::Fullword);
+        // TODO(neeythann)
+        let leet = flags.contains(PatternFlags::Leet);
 
         let mut common_flags = SubPatternFlags::empty();
 
