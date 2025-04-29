@@ -2519,6 +2519,8 @@ bitflags! {
         // Indicates that the pattern is a fast regexp. A fast regexp is one
         // that can be matched by the FastVM.
         const FastRegexp           = 0x40;
+        //TODO(neeythann):
+        const Leet                 = 0x50;
     }
 }
 
