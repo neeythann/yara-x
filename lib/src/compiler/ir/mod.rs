@@ -88,6 +88,7 @@ bitflags! {
         const Fullword             = 0x0040;
         const Private              = 0x0080;
         const NonAnchorable        = 0x0100;
+        const Leet                 = 0x0200;
     }
 }
 

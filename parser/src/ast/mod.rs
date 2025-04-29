@@ -668,6 +668,13 @@ impl<'src> PatternModifiers<'src> {
     }
 
     #[inline]
+    pub fn leet(&self) -> Option<&PatternModifier<'src>> {
+        self.modifiers
+            .iter()
+            .find(|m| matches!(m, PatternModifier::Leet { .. }))
+    }
+
+    #[inline]
     pub fn nocase(&self) -> Option<&PatternModifier<'src>> {
         self.modifiers
             .iter()
@@ -705,6 +712,7 @@ pub enum PatternModifier<'src> {
     Nocase { span: Span },
     Private { span: Span },
     Fullword { span: Span },
+    Leet { span: Span },
     Base64 { span: Span, alphabet: Option<LiteralString<'src>> },
     Base64Wide { span: Span, alphabet: Option<LiteralString<'src>> },
     Xor { span: Span, start: u8, end: u8 },
@@ -718,6 +726,7 @@ impl PatternModifier<'_> {
             PatternModifier::Nocase { .. } => "nocase",
             PatternModifier::Private { .. } => "private",
             PatternModifier::Fullword { .. } => "fullword",
+            PatternModifier::Leet { .. } => "leet",
             PatternModifier::Base64 { .. } => "base64",
             PatternModifier::Base64Wide { .. } => "base64wide",
             PatternModifier::Xor { .. } => "xor",
@@ -742,6 +751,9 @@ impl Display for PatternModifier<'_> {
             }
             PatternModifier::Fullword { .. } => {
                 write!(f, "fullword")
+            }
+            PatternModifier::Leet { .. } => {
+                write!(f, "leet")
             }
             PatternModifier::Base64 { alphabet, .. } => {
                 if let Some(alphabet) = alphabet {
@@ -1202,6 +1214,7 @@ impl WithSpan for PatternModifier<'_> {
             | PatternModifier::Nocase { span }
             | PatternModifier::Private { span }
             | PatternModifier::Fullword { span }
+            | PatternModifier::Leet { span }
             | PatternModifier::Base64 { span, .. }
             | PatternModifier::Base64Wide { span, .. }
             | PatternModifier::Xor { span, .. } => span.clone(),

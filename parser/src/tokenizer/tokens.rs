@@ -29,6 +29,7 @@ pub(crate) enum TokenId {
     IMPORT_KW,
     IN_KW,
     ISTARTSWITH_KW,
+    LEET_KW,
     MATCHES_KW,
     META_KW,
     NOCASE_KW,
@@ -138,6 +139,7 @@ impl TokenId {
             TokenId::IMPORT_KW => "`import`",
             TokenId::IN_KW => "`in`",
             TokenId::ISTARTSWITH_KW => "`istartswith`",
+            TokenId::LEET_KW => "`leet`",
             TokenId::MATCHES_KW => "`matches`",
             TokenId::META_KW => "`meta`",
             TokenId::NOCASE_KW => "`nocase`",
@@ -238,6 +240,7 @@ pub(crate) enum Token {
     IMPORT_KW(Span) = TokenId::IMPORT_KW as u8,
     IN_KW(Span) = TokenId::IN_KW as u8,
     ISTARTSWITH_KW(Span) = TokenId::ISTARTSWITH_KW as u8,
+    LEET_KW(Span) = TokenId::LEET_KW as u8,
     MATCHES_KW(Span) = TokenId::MATCHES_KW as u8,
     META_KW(Span) = TokenId::META_KW as u8,
     NOCASE_KW(Span) = TokenId::NOCASE_KW as u8,
@@ -357,6 +360,7 @@ impl Token {
             | Token::IMPORT_KW(span)
             | Token::IN_KW(span)
             | Token::ISTARTSWITH_KW(span)
+            | Token::LEET_KW(span)
             | Token::MATCHES_KW(span)
             | Token::META_KW(span)
             | Token::NOCASE_KW(span)

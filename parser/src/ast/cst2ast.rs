@@ -689,6 +689,9 @@ impl<'src> Builder<'src> {
                 Event::Token { kind: NOCASE_KW, span } => {
                     modifiers.push(PatternModifier::Nocase { span });
                 }
+                Event::Token { kind: LEET_KW, span } => {
+                    modifiers.push(PatternModifier::Leet { span })
+                }
                 Event::Token { kind: XOR_KW, mut span } => {
                     let mut start = 0;
                     let mut end = 255;

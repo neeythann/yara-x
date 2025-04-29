@@ -297,6 +297,8 @@ enum NormalToken<'src> {
     In,
     #[token("istartswith")]
     IStarsWith,
+    #[token("leet")]
+    Leet,
     #[token("matches")]
     Matches,
     #[token("meta")]
@@ -682,6 +684,7 @@ fn convert_normal_token(token: NormalToken, span: Span) -> Token {
         NormalToken::Import => Token::IMPORT_KW(span),
         NormalToken::In => Token::IN_KW(span),
         NormalToken::IStarsWith => Token::ISTARTSWITH_KW(span),
+        NormalToken::Leet => Token::LEET_KW(span),
         NormalToken::Matches => Token::MATCHES_KW(span),
         NormalToken::Meta => Token::META_KW(span),
         NormalToken::Nocase => Token::NOCASE_KW(span),

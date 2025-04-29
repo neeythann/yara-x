@@ -1233,7 +1233,8 @@ impl ParserImpl<'_> {
                         | WIDE_KW
                         | NOCASE_KW
                         | PRIVATE_KW
-                        | FULLWORD_KW),
+                        | FULLWORD_KW
+                        | LEET_KW),
                     DESC,
                 )
             })

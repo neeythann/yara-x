@@ -103,6 +103,7 @@ pub(in crate::compiler) fn text_pattern_from_ast<'src>(
     let base64 = pattern.modifiers.base64();
     let base64wide = pattern.modifiers.base64wide();
     let wide = pattern.modifiers.wide();
+    let leet = pattern.modifiers.leet();
 
     let invalid_combinations = [
         ("xor", xor, "nocase", nocase),
@@ -112,6 +113,7 @@ pub(in crate::compiler) fn text_pattern_from_ast<'src>(
         ("base64wide", base64wide, "fullword", fullword),
         ("base64", base64, "xor", xor),
         ("base64wide", base64wide, "xor", xor),
+        ("leet", leet, "xor", xor),
     ];
 
     for (name1, modifier1, name2, modifier2) in invalid_combinations {
@@ -143,6 +145,10 @@ pub(in crate::compiler) fn text_pattern_from_ast<'src>(
 
     if fullword.is_some() {
         flags.insert(PatternFlags::Fullword);
+    }
+
+    if leet.is_some() {
+        flags.insert(PatternFlags::Leet);
     }
 
     let xor_range = match xor {
