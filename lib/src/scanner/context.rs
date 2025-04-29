@@ -589,8 +589,16 @@ impl ScanContext<'_> {
                 }
 
                 // TODO(neeythann)
-                SubPattern::Leet { .. } => {
+                SubPattern::Leet { pattern, flags } => {
                     todo!();
+                    //if let Some(match_) = verify_leet_match() {
+                    //    self.handle_sub_pattern_match(
+                    //        sub_pattern_id,
+                    //        sub_pattern,
+                    //        *pattern_id,
+                    //        match_,
+                    //    )
+                    //};
                 }
 
                 SubPattern::Base64 { pattern, padding }
@@ -1203,6 +1211,30 @@ fn verify_xor_match(
     } else {
         None
     }
+}
+
+/// Verifies that a literal sub-pattern actually matches in leet form at the
+/// position where an atom was found
+///
+/// Returns a [`Match`] if the match was confirmed or [`None`] if otherwise.
+// TODO(neeythann)
+fn verify_leet_match(
+    pattern: &[u8],
+    scanned_data: &[u8],
+    atom_pos: usize,
+    atom: &SubPatternAtom,
+    flags: SubPatternFlags,
+) -> Option<Match> {
+    // Offset where the match should end (exclusive).
+    let match_end = atom_pos + pattern.len();
+
+    // The match can not end past the end of the scanned data.
+    if match_end > scanned_data.len() {
+        return None;
+    }
+
+    let mut pattern = pattern.to_owned();
+    Some(Match { range: atom_pos, xor_key: None })
 }
 
 /// Verifies that a literal sub-pattern actually matches in base64 form at
